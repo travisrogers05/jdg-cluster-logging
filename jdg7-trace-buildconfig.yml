@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: jdg7-trace
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: jdg7-trace:latest
+  runPolicy: Serial
+  source:
+    git:
+      ref: master
+      uri: https://github.com/travisrogers05/jdg-cluster-logging
+    type: Git
+  strategy:
+    sourceStrategy:
+      forcePull: true
+      from:
+        kind: ImageStreamTag
+        name: jboss-datagrid71-openshift:1.2
+        namespace: openshift
+    type: Source
+  triggers:
+    type: ImageChange
