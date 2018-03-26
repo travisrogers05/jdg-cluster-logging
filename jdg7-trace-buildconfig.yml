@@ -6,7 +6,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: jdg7-trace:latest
+      name: jdg7-trace:1.0
   runPolicy: Serial
   source:
     git:
@@ -21,5 +21,3 @@ spec:
         name: jboss-datagrid71-openshift:1.2
         namespace: openshift
     type: Source
-  triggers:
-    type: ImageChange
